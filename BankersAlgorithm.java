@@ -25,6 +25,21 @@ public class BankersAlgorithm{
         int[] available = {
             3, 3, 2
         };
+
+        // Print matrices
+        System.out.println("Allocation Matrix:");
+        printMatrix(allocation);
+        System.out.println("Max Matrix:");
+        printMatrix(max);
+        System.out.println("Need Matrix:");
+        printMatrix(need);
+        System.out.println("Available Resources:"); 
+        for (int i = 0; i < available.length; i++) {
+            System.out.print(available[i] + " ");
+        }
+        System.out.println();
+        
+        // Check system state
         if (isSafe(processes, resources, allocation, max, available)) {
             System.out.println("System is in a safe state.");
         } else {
@@ -103,6 +118,15 @@ public class BankersAlgorithm{
                 max[process][i] += request[i];
             }
             System.out.println("Request cannot be granted.");
+        }
+    }
+
+    public static void printMatrix(int[][] matrix) {
+        for (int[] row : matrix) {
+            for (int value : row) {
+                System.out.print(value + " ");
+            }
+            System.out.println();
         }
     }
 }
